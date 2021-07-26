@@ -13,8 +13,15 @@ body {
   transform-style: preserve-3d;
   height: 150px;
   width: 150px;
-  transform: perspective(1000px) rotateY(var(--rotate-y, 0));
   transition: 150ms;
+  cursor: pointer;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
+}
+
+.card:hover {
+  --translate-y: -2px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
 
 .card.flip {
@@ -28,6 +35,24 @@ body {
   backface-visibility: hidden;
 }
 
+.card .front {
+  left: 0;
+}
+
 .card .back {
   transform: rotateY(180deg);
+}
+
+.flashcard-options {
+  margin-top: 0.5rem;
+}
+
+.flashcard-option {
+  margin-top: 0.25rem;
+  color: #555;
+  font-size: 0.75rem;
+}
+
+.flashcard-option:first-child {
+  margin-top: 0;
 }
