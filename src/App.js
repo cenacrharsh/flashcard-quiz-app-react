@@ -3,6 +3,9 @@ import { useState } from "react";
 /* Components */
 import FlashcardList from "./FlashcardList";
 
+/* Styles */
+import "./app.css";
+
 function App() {
   const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
 
