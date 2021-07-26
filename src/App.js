@@ -14,13 +14,13 @@ const SAMPLE_FLASHCARDS = [
     id: 1,
     question: "what is 2+2?",
     answer: "4",
-    option: ["2", "3", "4", "5"],
+    options: ["2", "3", "4", "5"],
   },
   {
     id: 2,
     question: "what is 2+3?",
     answer: "5",
-    option: ["2", "3", "4", "5"],
+    options: ["2", "3", "4", "5"],
   },
 ];
 
