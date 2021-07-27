@@ -11,8 +11,8 @@ export default function Flashcard({ flashcard }) {
 
   /* Calculating Required Height */
   function setMaxHeight() {
-    const frontHeight = frontEl.getBoundingClientRect().height;
-    const backHeight = backEl.getBoundingClientRect().height;
+    const frontHeight = frontEl.current.getBoundingClientRect().height;
+    const backHeight = backEl.current.getBoundingClientRect().height;
     setHeight(Math.max(frontHeight, backHeight, 100));
   }
 
