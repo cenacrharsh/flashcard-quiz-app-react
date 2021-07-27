@@ -38,7 +38,11 @@ export default function Flashcard({ flashcard }) {
         {flashcard.question}
         <div className="flashcard-options">
           {flashcard.options.map((option) => {
-            return <div className="flashcard-option">{option}</div>;
+            return (
+              <div key={option} className="flashcard-option">
+                {option}
+              </div>
+            );
           })}
         </div>
       </div>
