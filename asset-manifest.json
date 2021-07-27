@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/flashcard-quiz-app-react/static/css/main.5a6243d8.chunk.css",
+    "main.js": "/flashcard-quiz-app-react/static/js/main.24931693.chunk.js",
+    "main.js.map": "/flashcard-quiz-app-react/static/js/main.24931693.chunk.js.map",
+    "runtime-main.js": "/flashcard-quiz-app-react/static/js/runtime-main.06ddec5c.js",
+    "runtime-main.js.map": "/flashcard-quiz-app-react/static/js/runtime-main.06ddec5c.js.map",
+    "static/js/2.12478dbf.chunk.js": "/flashcard-quiz-app-react/static/js/2.12478dbf.chunk.js",
+    "static/js/2.12478dbf.chunk.js.map": "/flashcard-quiz-app-react/static/js/2.12478dbf.chunk.js.map",
+    "index.html": "/flashcard-quiz-app-react/index.html",
+    "static/css/main.5a6243d8.chunk.css.map": "/flashcard-quiz-app-react/static/css/main.5a6243d8.chunk.css.map",
+    "static/js/2.12478dbf.chunk.js.LICENSE.txt": "/flashcard-quiz-app-react/static/js/2.12478dbf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06ddec5c.js",
+    "static/js/2.12478dbf.chunk.js",
+    "static/css/main.5a6243d8.chunk.css",
+    "static/js/main.24931693.chunk.js"
+  ]
+}
