@@ -10,31 +10,13 @@ import "./app.css";
 import axios from "axios";
 
 function App() {
-  const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+  const [flashcards, setFlashcards] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const categoryEl = useRef();
   const amountEl = useRef();
 
-  useEffect(() => {
-    axios.get("https://opentdb.com/api.php?amount=10").then((res) => {
-      setFlashcards(
-        res.data.results.map((questionItem, index) => {
-          const answer = deocdeString(questionItem.correct_answer);
-          const options = [
-            ...questionItem.incorrect_answers.map((a) => deocdeString(a)),
-            answer,
-          ];
-          return {
-            id: `${index}-${Date.now()}`,
-            question: deocdeString(questionItem.question),
-            answer: answer,
-            options: options.sort(() => Math.random() - 0.5),
-          };
-        })
-      );
-    });
-  }, []);
+  useEffect(() => {}, []);
 
   /* Converts the html encoded characters to string then returns it back */
 
@@ -46,6 +28,30 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    axios
+      .get("https://opentdb.com/api.php", {
+        params: {
+          amount: amountEl.current.value,
+          category: categoryEl.current.value,
+        },
+      })
+      .then((res) => {
+        setFlashcards(
+          res.data.results.map((questionItem, index) => {
+            const answer = deocdeString(questionItem.correct_answer);
+            const options = [
+              ...questionItem.incorrect_answers.map((a) => deocdeString(a)),
+              answer,
+            ];
+            return {
+              id: `${index}-${Date.now()}`,
+              question: deocdeString(questionItem.question),
+              answer: answer,
+              options: options.sort(() => Math.random() - 0.5),
+            };
+          })
+        );
+      });
   }
 
   /* API CALL FOR GETTING CATEGORIES */
@@ -60,7 +66,7 @@ function App() {
     <>
       <form className="header" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="category">Category</label>
+          <label htmlFor="category">Category of Questions</label>
           <select id="category" ref={categoryEl}>
             {categories.map((category) => {
               return (
@@ -92,20 +98,5 @@ function App() {
     </>
   );
 }
-
-const SAMPLE_FLASHCARDS = [
-  {
-    id: 1,
-    question: "what is 2+2?",
-    answer: "4",
-    options: ["2", "3", "4", "5"],
-  },
-  {
-    id: 2,
-    question: "what is 2+3?",
-    answer: "5",
-    options: ["2", "3", "4", "5"],
-  },
-];
 
 export default App;
