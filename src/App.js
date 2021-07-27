@@ -83,7 +83,7 @@ function App() {
           ></input>
         </div>
         <div className="form-group">
-          <button className="btn">Generates</button>
+          <button className="btn">Generate</button>
         </div>
       </form>
       <div className="container">
