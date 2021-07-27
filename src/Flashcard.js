@@ -22,6 +22,12 @@ export default function Flashcard({ flashcard }) {
     flashcard.options,
   ]);
 
+  /* to trigger height calc on page resize */
+  useEffect(() => {
+    window.addEventListener("resize", setMaxHeight);
+    return () => window.removeEventListener("resize", setMaxHeight);
+  });
+
   return (
     <div
       className={`card ${flip ? "flip" : ""}`}
