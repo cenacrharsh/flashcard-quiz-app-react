@@ -16,8 +16,11 @@ function App() {
     axios.get("https://opentdb.com/api.php?amount=10").then((res) => {
       setFlashcards(
         res.data.results.map((questionItem, index) => {
-          const answer = questionItem.correct_answer;
-          const options = [...questionItem.incorrect_answers, answer];
+          const answer = deocdeString(questionItem.correct_answer);
+          const options = [
+            ...questionItem.incorrect_answers.map((a) => deocdeString(a)),
+            answer,
+          ];
           return {
             id: `${index}-${Date.now()}`,
             question: deocdeString(questionItem.question),
